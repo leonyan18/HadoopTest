@@ -89,7 +89,7 @@ public class CalculateReducer extends Reducer<Text, Text, Text, Text> {
         set.addAll(m2.keySet());
         double n1 = 0, n2 = 0, nfinal = 0;
         for (String st : set) {
-            double tfidf=size/getDoubleVal(tf.get(st));
+            double tfidf=Math.log10(size/getDoubleVal(tf.get(st)));
             double val1 = getDoubleVal(m1.get(st))/m1.size()*tfidf;
             double val2 = getDoubleVal(m2.get(st))/m2.size()*tfidf;
             n1 += val1 * val1;
